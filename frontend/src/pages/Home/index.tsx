@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdMoveToInbox } from "react-icons/md";
 
 import Header from "~/components/Header";
+import ChatButton from "~/components/ChatButton";
 import CaseItem from "~/components/CaseItem";
 import { IIncidents, IOng } from "~/types/types";
 import api from "~/services/api";
@@ -62,6 +63,8 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      <ChatButton />
     </Container>
   );
 }
