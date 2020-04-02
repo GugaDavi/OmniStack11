@@ -32,13 +32,13 @@ const IncidentItem: React.FC<Props> = ({ incident, toDatails }) => {
           <CaseTitle>{incident.title}</CaseTitle>
         </CaseHeader>
         <OngHeader>
-          <Label>ONG</Label>
+          <Label>ONG:</Label>
           <OngName>{incident.name}</OngName>
         </OngHeader>
       </Header>
 
       <Body>
-        <Label>VALOR</Label>
+        <Label>VALOR:</Label>
         <Value>{formatPrice(incident.value)}</Value>
       </Body>
 

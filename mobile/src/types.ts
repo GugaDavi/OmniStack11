@@ -14,4 +14,5 @@ export interface IIncident {
 export type RootStackParamList = {
   Home: undefined;
   IncidentsDatails: { item: IIncident };
+  Chat: { incident: IIncident };
 };

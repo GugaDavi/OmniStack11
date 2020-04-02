@@ -21,11 +21,14 @@ import { Alert } from "react-native";
 export default function Home() {
   const { navigate } = useNavigation();
   const [incidents, setIncidents] = useState<IIncident[]>([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     async function getIncidents() {
       try {
         const resp = await api.get<IIncident[]>("/incidents");
+
+        setTotal(resp.headers["x-total-count"]);
 
         setIncidents(resp.data);
       } catch (error) {
@@ -45,12 +48,12 @@ export default function Home() {
     <Container>
       <Header>
         <Image source={logo} />
-        <Total>Total de 43 caos</Total>
+        <Total>Total de {total} caos</Total>
       </Header>
 
       <PageContainer>
         <Title>Bem-vindo!</Title>
-        <TitleP>Escolha um dos casos abaixo e salve o dia</TitleP>
+        <TitleP>Escolha um dos casos abaixo e salve o dia:</TitleP>
       </PageContainer>
 
       <IncidentItems

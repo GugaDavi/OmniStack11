@@ -21,7 +21,7 @@ import CaseDatails from "../../components/CaseDatails/";
 import { RootStackParamList } from "~/types";
 
 export default function IncidentDetails() {
-  const { goBack } = useNavigation();
+  const { goBack, navigate } = useNavigation();
   const route = useRoute<RouteProp<RootStackParamList, "IncidentsDatails">>();
   const { item } = route.params;
   const message = `Olá ${item.name}, estou entrando em contato pois gostaria de ajudar no caso: ${item.title}`;
@@ -51,8 +51,8 @@ export default function IncidentDetails() {
 
         <ContactSpan>Entre em contato</ContactSpan>
         <Buttons>
-          <ContactButton>
-            <ContactButtonText>WhatsApp</ContactButtonText>
+          <ContactButton onPress={() => navigate("Chat", { incident: item })}>
+            <ContactButtonText>Chat</ContactButtonText>
           </ContactButton>
           <ContactButton onPress={sendMail}>
             <ContactButtonText>E-mail</ContactButtonText>
